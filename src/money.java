@@ -1,3 +1,4 @@
+
 /**
  * @author: faris
  * date: 09/01/2025
@@ -89,25 +90,21 @@ class Account{
     public void addIncome(double income){
         this.income += income;
         checkBalance();
-        viewBalance();
     }
 
     public void addExpense(double expense){
         this.expenses += expense;
         checkBalance();
-        viewBalance();
     }
 
     public void delIncome(double income){
         this.income -= income;
         checkBalance();
-        viewBalance();
     }
 
     public void delExpense(double expense){
         this.expenses -= expense;
         checkBalance();
-        viewBalance();
     }
 
     public void viewBalance(){
@@ -123,7 +120,7 @@ class Account{
     }
 }
 
-class Transaction{
+class Transaction {
     private double amount;
     private String category;
     private String date;
@@ -137,24 +134,24 @@ class Transaction{
 
 
     public double getAmount(){
-        if (this.amount == 0.0){
-            return 0.0;
-        }
         return this.amount;
     }
     
     public String getCategory(){
-        if (this.category == null){
-            return "0";
-        }
         return this.category;
     }
 
     public String getDate(){
-        if (this.date == null){
-            return "0";
-        }
         return this.date;
+    }
+
+    public boolean isEqual(Transaction t){
+        if (this.amount == t.amount && this.category.equals(t.category) && this.date.equals(t.date)){
+            return true;
+        }else{
+            return false;
+        }
+
     }
 
     @Override

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public final class Db {
@@ -19,6 +20,12 @@ public final class Db {
     }
 
     public static int searchTransactionA(ArrayList<Transaction> x, Double a){
+        x.sort(new Comparator<Transaction>() {
+            @Override
+            public int compare(Transaction o1, Transaction o2) {
+                return Double.compare(o1.getAmount(), o2.getAmount());
+            }
+        });
         int low = 0;
         int high = x.size() - 1;  // size
 
@@ -36,6 +43,13 @@ public final class Db {
     }
 
     public static int searchTransactionC(ArrayList<Transaction> x, String c){
+        x.sort(new Comparator<Transaction>() {
+            @Override
+            public int compare(Transaction o1, Transaction o2) {
+                return o1.getCategory().compareTo(o2.getCategory());
+            }
+        });
+        // System.out.println(x);
         int low = 0;
         int high = x.size() - 1;
 
@@ -53,6 +67,12 @@ public final class Db {
     }
 
     public static int searchTransactionD(ArrayList<Transaction> x, String c){
+        x.sort(new Comparator<Transaction>() {
+            @Override
+            public int compare(Transaction o1, Transaction o2) {
+                return o1.getCategory().compareTo(o2.getCategory());
+            }
+        });
         int low = 0;
         int high = x.size() - 1;
 
@@ -67,6 +87,15 @@ public final class Db {
             }
         }
         return -1;
+    }
+
+    public static void findTransaction2(double a){
+        for (Transaction transaction : transactions) {
+            if (transaction.getAmount() == a){
+                System.out.println(transaction.toString());
+            }
+        }
+        System.out.println("not found.");
     }
 
     public static void findTransaction(){
@@ -84,7 +113,7 @@ public final class Db {
             if (z == -1){
                 System.out.println("Transaction not found.");
             }else{
-                System.out.println(transactions.get(z));
+                System.out.println(transactions.get(z).toString());
             }
         }else if (x.charAt(0) == 'c'){
             System.out.println("Enter category: ");
@@ -95,7 +124,7 @@ public final class Db {
             if (z == -1){
                 System.out.println("Transaction not found.");
             }else{
-                System.out.println(transactions.get(z));
+                System.out.println(transactions.get(z).toString());
             }
         }else if (x.charAt(0) == 'd'){
             System.out.println("Enter date: ");
@@ -106,10 +135,11 @@ public final class Db {
             if (z == -1){
                 System.out.println("Transaction not found.");
             }else{
-                System.out.println(transactions.get(z));
+                System.out.println(transactions.get(z).toString());
             }
         }else{
             System.out.println("Enter a letter from the selection.");
+            x = input.nextLine();
         }
 
         input.close();
