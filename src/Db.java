@@ -27,11 +27,11 @@ public final class Db {
             }
         });
         int low = 0;
-        int high = x.size() - 1;  // size
+        int high = x.size() - 1;
 
         while (high >= low) {
             int middle = (low + high) / 2;
-            if (x.get(middle).getAmount() == a) {  // x.get(middle)
+            if (x.get(middle).getAmount() == a) { 
                 return middle;
             } else if (x.get(middle).getAmount() < a) {
                 low = middle + 1;
@@ -49,15 +49,17 @@ public final class Db {
                 return o1.getCategory().compareTo(o2.getCategory());
             }
         });
-        // System.out.println(x);
+
         int low = 0;
         int high = x.size() - 1;
 
         while (high >= low) {
             int middle = (low + high) / 2;
-            if (x.get(middle).getCategory().compareTo(c) == 0) {
+            Transaction mid = x.get(middle);
+            int compare = mid.getCategory().compareTo(c);
+            if (compare == 0) {
                 return middle;
-            } else if (x.get(middle).getCategory().compareTo(c) < 0) {
+            } else if (compare < 0) {
                 low = middle + 1;
             } else {
                 high = middle - 1;
@@ -70,32 +72,26 @@ public final class Db {
         x.sort(new Comparator<Transaction>() {
             @Override
             public int compare(Transaction o1, Transaction o2) {
-                return o1.getCategory().compareTo(o2.getCategory());
+                return o1.getDate().compareTo(o2.getDate());
             }
         });
+  
         int low = 0;
         int high = x.size() - 1;
 
         while (high >= low) {
             int middle = (low + high) / 2;
-            if (x.get(middle).getDate().compareTo(c) == 0) {
+            Transaction mid = x.get(middle);
+            int compare = mid.getDate().compareTo(c);
+            if (compare == 0) {
                 return middle;
-            } else if (x.get(middle).getDate().compareTo(c) < 0) {
+            } else if (compare < 0) {
                 low = middle + 1;
             } else {
                 high = middle - 1;
             }
         }
         return -1;
-    }
-
-    public static void findTransaction2(double a){
-        for (Transaction transaction : transactions) {
-            if (transaction.getAmount() == a){
-                System.out.println(transaction.toString());
-            }
-        }
-        System.out.println("not found.");
     }
 
     public static void findTransaction(){
