@@ -208,7 +208,7 @@ class Transaction {
      * @return The amount of the transaction.
      */
     public double getAmount() {
-        return (this.amount == 0.0) ? 0.0 : this.amount;
+        return this.amount;
     }
 
     /**
@@ -217,7 +217,7 @@ class Transaction {
      * @return The category of the transaction.
      */
     public String getCategory() {
-        return (this.category == null) ? "0" : this.category;
+        return this.category;
     }
 
     /**
@@ -226,7 +226,7 @@ class Transaction {
      * @return The date of the transaction.
      */
     public String getDate() {
-        return (this.date == null) ? "0" : this.date;
+        return this.date;
     }
 
     /**
