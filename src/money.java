@@ -1,14 +1,9 @@
 /**
- * @author: Faris
- * @date: 09/01/2025
- * app that somehwo helps u make moenye
+ * @author Faris
+ * @date 09/01/2025
+ * app that helps u stack yo bread 
  */
 public class money {
-    /**
-     * The main method to run the application.
-     * 
-     * @param args Command-line arguments (not used).
-     */
     @SuppressWarnings("unused")
     public static void main(String[] args) {
 
@@ -76,18 +71,21 @@ class User extends Account {
     /**
      * Displays the user's profile if they have access.
      */
-    public void ViewProfile() {
+    public String ViewProfile() {
         if (access) {
             System.out.printf("Username: %s\n", username);
             System.out.printf("Password: %s\n", password);
+            return "Username: "+this.username+"\nPassword: "+this.password+"\n";
         } else {
             System.out.println("You do not have access to this user");
+            return "You do not have access to this user\n";
         }
     }
 }
 
 /**
- * The Account class represents a basic account with income, expenses, and balance tracking.
+ * The Account class represents a basic account with functionality for tracking income, 
+ * expenses, and balance.
  */
 class Account {
     protected boolean access;
@@ -122,7 +120,6 @@ class Account {
     public void addIncome(double income) {
         this.income += income;
         checkBalance();
-        viewBalance();
     }
 
     /**
@@ -133,7 +130,6 @@ class Account {
     public void addExpense(double expense) {
         this.expenses += expense;
         checkBalance();
-        viewBalance();
     }
 
     /**
@@ -144,7 +140,6 @@ class Account {
     public void delIncome(double income) {
         this.income -= income;
         checkBalance();
-        viewBalance();
     }
 
     /**
@@ -155,33 +150,36 @@ class Account {
     public void delExpense(double expense) {
         this.expenses -= expense;
         checkBalance();
-        viewBalance();
     }
 
     /**
      * Displays the current balance.
      */
-    public void viewBalance() {
+    public double viewBalance() {
         System.out.printf("Balance: %f\n", balance);
+        return balance;
     }
 
     /**
      * Displays the current income.
      */
-    public void viewIncome() {
+    public double viewIncome() {
         System.out.printf("Income: %f\n", income);
+        return income;
     }
 
     /**
      * Displays the current expenses.
      */
-    public void viewExpenses() {
+    public double viewExpenses() {
         System.out.printf("Expenses: %f\n", expenses);
+        return expenses;
     }
 }
 
 /**
- * The Transaction class represents a financial transaction with an amount, category, and date.
+ * The Transaction class represents a financial transaction with details like 
+ * amount, category, and date.
  */
 class Transaction {
     private double amount;

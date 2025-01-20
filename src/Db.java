@@ -2,6 +2,13 @@
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
+@SuppressWarnings("unused")
+
+/**
+ * @author Faris
+ * @date 09/01/2025
+ * database fo app that helps u stack yo bread 
+ */
 
 public final class Db {
 
@@ -9,7 +16,6 @@ public final class Db {
      * The main method initializes some sample transactions and prints them to the console.
      * @param args Command-line arguments (not used).
      */
-    @SuppressWarnings("unused")
     public static void main(String[] args) {
         Transaction t1 = new Transaction(1500.75, "payment", "10/01/2025");
         Transaction t2 = new Transaction(24500.50, "deposit", "11/10/2025");
