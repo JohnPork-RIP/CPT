@@ -9,6 +9,7 @@ public final class Db {
      * The main method initializes some sample transactions and prints them to the console.
      * @param args Command-line arguments (not used).
      */
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
         Transaction t1 = new Transaction(1500.75, "payment", "10/01/2025");
         Transaction t2 = new Transaction(24500.50, "deposit", "11/10/2025");
@@ -158,4 +159,6 @@ public final class Db {
 
         input.close();
     }
+
 }
+
