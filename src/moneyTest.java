@@ -71,7 +71,7 @@ public class moneyTest {
         Account account = new Account();
         account.addIncome(2000);
         account.addExpense(2000);
-        assertEquals(0, account.viewBalance()); // Expect balance = 0
+        assertEquals(0, account.viewBalance()); 
     }
 
     @Test
